@@ -1,7 +1,7 @@
 # PizzaOrderSystem
 <br>
 <div style="display:flex; justify-content:center;">
-&nbsp &nbsp &nbsp &nbsp
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 <img src="https://globalaihub.com/wp-content/uploads/2021/11/logo_quality_min.png" width="400" height="110" /> &nbsp &nbsp &nbsp  &nbsp
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Akbank_logo.svg/1280px-Akbank_logo.svg.png" width="200" height="100"/>
 </div> 
