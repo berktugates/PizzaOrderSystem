@@ -14,7 +14,7 @@ class Decorator():
         return f"{self.description}"  
 
 
-# I inherited the pizza superclass from the Decorator class.
+# The Pizza superclass is inherited from the decorator class
 
 class Pizza(Decorator):
     def __init__(self,name,price,description,type_of_sauce):
@@ -24,7 +24,7 @@ class Pizza(Decorator):
         self.type_of_sauce=type_of_sauce
 
 
-# I created subclasses of pizza
+# Subclasses of Pizza class were created
 
 class ClassicPizza(Pizza):
     def __init__(self, name, price, description, type_of_sauce):
@@ -43,7 +43,7 @@ class Plain(Pizza):
         super().__init__(name, price, description, type_of_sauce)
     
 
-# I inherited the sauce superclass from the Decorator class.
+# The Sauce superclass is inherited from the decorator class
 
 class Sauce(Decorator):
     def __init__(self,name,price,description):
@@ -51,7 +51,7 @@ class Sauce(Decorator):
         self.price=price
         self.description=description
     
-# I created subclasses of sauce
+# Subclasses of sos class created
 
 class Olive(Sauce):
     def __init__(self, name, price, description):
@@ -77,7 +77,7 @@ class Corn(Sauce):
     def __init__(self, name, price, description):
         super().__init__(name, price, description)        
 
-# I create sauce objects
+# Sauce objects created
 
 olive = Olive("Olive",10,"Sauce : Olive")
 mushroom = Mushroom("Mushroom",15,"Sauce : Mushroom")
@@ -86,16 +86,17 @@ meat = Meat("Meat",50,"Sauce : Meat")
 onion = Onion("Onion",20,"Sauce : Onion")
 corn = Corn("Corn",25,"Sauce : Corn")
 
-# Müşteri bilgilerini alıyorum.
+# Customer information received
 class Customer():
-    def __init__(self,name,surname,order_description):
+    def __init__(self,tc,name,surname,order_description):
+        self.tc=tc
         self.name=name
         self.surname=surname
         self.order_description=order_description
 
 class Customer_Payment(Customer):
-    def __init__(self, name, surname, order_description,card_no,card_pass):
-        super().__init__(name, surname, order_description)
+    def __init__(self,tc, name, surname, order_description,card_no,card_pass):
+        super().__init__(tc,name, surname, order_description)
         self.card_no=card_no
         self.card_pass=card_pass
 
@@ -106,19 +107,69 @@ def main():
     if 0<pizza_selection<5 and 10<sauce_selection<17:
         if pizza_selection == 1:
             classic_pizza = ClassicPizza("Classic Pizza",140,"Pizza Type : Classic Pizza",sauce_selection)
-            total_price = classic_pizza.price
+            if sauce_selection == 11:
+                total_price = int(classic_pizza.price) + int(olive.price)
+            elif sauce_selection == 12:
+                total_price = int(classic_pizza.price) + int(mushroom.price)
+            elif sauce_selection == 13:
+                total_price = int(classic_pizza.price) + int(goat_cheese.price)
+            elif sauce_selection == 14:
+                total_price = int(classic_pizza.price) + int(meat.price)
+            elif sauce_selection == 15:
+                total_price = int(classic_pizza.price) + int(onion.price)
+            elif sauce_selection == 16:
+                total_price = int(classic_pizza.price) + int(corn.price)                    
         elif pizza_selection == 2:
             margherita_pizza = Margherita("Margherita Pizza",150,"Pizza Type : Margherita Pizza",sauce_selection)
-            total_price = margherita_pizza.price
+            if sauce_selection == 11:
+                total_price = int(margherita_pizza.price) + int(olive.price)
+            elif sauce_selection == 12:
+                total_price = int(margherita_pizza.price) + int(mushroom.price)
+            elif sauce_selection == 13:
+                total_price = int(margherita_pizza.price) + int(goat_cheese.price)
+            elif sauce_selection == 14:
+                total_price = int(margherita_pizza.price) + int(meat.price)
+            elif sauce_selection == 15:
+                total_price = int(margherita_pizza.price) + int(onion.price)
+            elif sauce_selection == 16:
+                total_price = int(margherita_pizza.price) + int(corn.price)
         elif pizza_selection == 3:
             turkish_pizza = TurkishPizza("Turkish Pizza",270,"Pizza Type : Turkish Pizza",sauce_selection)
-            total_price = turkish_pizza.price
+            if sauce_selection == 11:
+                total_price = int(turkish_pizza.price) + int(olive.price)
+            elif sauce_selection == 12:
+                total_price = int(turkish_pizza.price) + int(mushroom.price)
+            elif sauce_selection == 13:
+                total_price = int(turkish_pizza.price) + int(goat_cheese.price)
+            elif sauce_selection == 14:
+                total_price = int(turkish_pizza.price) + int(meat.price)
+            elif sauce_selection == 15:
+                total_price = int(turkish_pizza.price) + int(onion.price)
+            elif sauce_selection == 16:
+                total_price = int(turkish_pizza.price) + int(corn.price)
         elif pizza_selection == 4:
             plain_pizza = Plain("Plain Pizza",120,"Pizza Type : Plain Pizza",sauce_selection)
-            total_price = plain_pizza.price
+            if sauce_selection == 11:
+                total_price = int(plain_pizza.price) + int(olive.price)
+            elif sauce_selection == 12:
+                total_price = int(plain_pizza.price) + int(mushroom.price)
+            elif sauce_selection == 13:
+                total_price = int(plain_pizza.price) + int(goat_cheese.price)
+            elif sauce_selection == 14:
+                total_price = int(plain_pizza.price) + int(meat.price)
+            elif sauce_selection == 15:
+                total_price = int(plain_pizza.price) + int(onion.price)
+            elif sauce_selection == 16:
+                total_price = int(plain_pizza.price) + int(corn.price)
 
     else:
-        return f"Hatalı seçim yaptınız."
+        return f"Hatalı seçim yaptınız!"
 
-    
+# User information received.  
+    customer_name = Customer(input("Lütfen TC numaranızı giriniz:"),input("Lütfen isminizi giriniz:"),input("Lütfen soyisminizi giriniz:"),input("Lütfen sipariş açıklamanızı giriniz:"))
+    customer_payment = Customer_Payment(customer_name.tc,customer_name.name,customer_name.surname,customer_name.order_description,input("Lütfen kart numaranızı giriniz:"),input("Lütfen kart şifrenizi giriniz:"))
+
+# The fee to be paid by the customer is printed on the screen  
+    print(f"Ödemeniz gereken ücret : {total_price}. Afiyet olsun!")
+
 main()
