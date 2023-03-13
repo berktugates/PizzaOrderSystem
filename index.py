@@ -166,10 +166,16 @@ def main():
         return f"Hatalı seçim yaptınız!"
 
 # User information received.  
-    customer_name = Customer(input("Lütfen TC numaranızı giriniz:"),input("Lütfen isminizi giriniz:"),input("Lütfen soyisminizi giriniz:"),input("Lütfen sipariş açıklamanızı giriniz:"))
-    customer_payment = Customer_Payment(customer_name.tc,customer_name.name,customer_name.surname,customer_name.order_description,input("Lütfen kart numaranızı giriniz:"),input("Lütfen kart şifrenizi giriniz:"))
-
+    customer_name = Customer(input("Please enter your TC number:"),input("Please enter your name:"),input("Please enter your surname:"),input("Please enter your order description:"))
+    customer_payment = Customer_Payment(customer_name.tc,customer_name.name,customer_name.surname,customer_name.order_description,input("Please enter your card number:"),input("Please enter your card password:"))
+    customer_info = ["TC:"+customer_name.tc,"Name:"+customer_name.name,"Surname:"+customer_name.surname,"Order Description:"+customer_name.order_description,"Card-No"+customer_payment.card_no,"Card-Password"+customer_payment.card_pass]
 # The fee to be paid by the customer is printed on the screen  
-    print(f"Ödemeniz gereken ücret : {total_price}. Afiyet olsun!")
+    print(f"Fee you have to pay: {total_price}. Enjoy your meal!")
+
+# Data was written to csv file
+    csvFile = open("Orders_Database.csv","w",newline='') 
+    writer = csv.writer(csvFile,delimiter='|')
+    writer.writerow(customer_info)
+
 
 main()
